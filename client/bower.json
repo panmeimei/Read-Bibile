@@ -1,0 +1,31 @@
+{
+  "name": "Read Bible",
+  "version": "1.0.0",
+  "homepage": "https://github.com/panmeimei/Read-Bibile",
+  "authors": [
+    "Chia Hsin H. Santos"
+  ],
+  "description": "Daily bible from ccreadbible.org",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "bible",
+    "mobile"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "~1.7.0",
+    "jquery": "~2.1.1",
+    "backbone": "~1.1.2"
+  }
+}

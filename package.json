@@ -1,0 +1,31 @@
+{
+  "name": "Read-Bibile",
+  "version": "1.0.0",
+  "description": "Daily bible from ccreadbible.org",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/panmeimei/Read-Bibile.git"
+  },
+  "keywords": [
+    "bible",
+    "mobile"
+  ],
+  "author": "Chia Hsin H. Santos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/panmeimei/Read-Bibile/issues"
+  },
+  "homepage": "https://github.com/panmeimei/Read-Bibile",
+  "dependencies": {
+    "bluebird": "^2.3.11",
+    "body-parser": "^1.10.0",
+    "express": "^4.10.4",
+    "express-partials": "^0.3.0",
+    "express-session": "^1.9.3",
+    "request": "^2.49.0"
+  }
+}
