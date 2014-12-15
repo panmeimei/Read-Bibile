@@ -1,6 +1,6 @@
 var App = new (Backbone.Router.extend({
   routes:{
-    'home': 'index',
+    '': 'index',
     'dailybible': 'fetchBible'
   },
 
@@ -9,8 +9,7 @@ var App = new (Backbone.Router.extend({
   },
  
   index: function(e){
-    
-    console.log('index');
+
     new AppView({model: new AppModel()});
   },
   fetchBible: function(){
@@ -20,11 +19,8 @@ var App = new (Backbone.Router.extend({
 
     reading.fetch({
       success: function() {
-       // self.appModel.set('reading', reading);
         var readingView = new ReadingView({model: reading});
         readingView.render();
-     
-        // new AppView({model: new AppModel({reading: reading})}).render();
       },
       error: function(err){
         if(err) throw err;

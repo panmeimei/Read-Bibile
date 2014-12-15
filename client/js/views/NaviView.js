@@ -22,7 +22,7 @@ var NaviView = Backbone.View.extend({
 
   directToHome: function(e){
     e.preventDefault();
-    App.navigate('/home', {trigger: true});
+    App.navigate('', {trigger: true});
   },
 
   directToBible: function(e){
