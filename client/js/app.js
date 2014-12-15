@@ -1,25 +1,30 @@
 var App = new (Backbone.Router.extend({
   routes:{
-    '': 'index',
-    'dailybible': 'showBible'
+    'home': 'index',
+    'dailybible': 'fetchBible'
   },
-  initialize: function(){
-     
-  },
+
   start: function(){
     Backbone.history.start({pushState: true});
   },
  
-  index: function(){
-  //  $('body').append('<a>daily bible</a>');
-   // this.navigate('/dailybible', {trigger: true});
+  index: function(e){
+    
+    console.log('index');
+    new AppView({model: new AppModel()});
   },
-  showBible: function(){
-    console.log('show bible');
+  fetchBible: function(){
+
     var reading = new Reading();
+    var self = this;
+
     reading.fetch({
       success: function() {
-        new AppView({model: new AppModel({reading: reading})}).render();
+       // self.appModel.set('reading', reading);
+        var readingView = new ReadingView({model: reading});
+        readingView.render();
+     
+        // new AppView({model: new AppModel({reading: reading})}).render();
       },
       error: function(err){
         if(err) throw err;
@@ -31,5 +36,5 @@ var App = new (Backbone.Router.extend({
 
         
 $(function(){
-  App.start()
+  App.start();
 });

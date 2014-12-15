@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use('/api', router);
 app.use(express.static(path.join(__dirname, '/../client')));
 
-app.get('/', function (req, res) {
+app.get('/home', function (req, res) {
   res.sendfile(path.join(__dirname, '/../client/index.html'));
 });
 

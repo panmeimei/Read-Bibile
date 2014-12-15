@@ -13,15 +13,29 @@ module.exports = {
       date = (today.getDate()<10)? '0'+today.getDate(): today.getDate();
       var url = 'http://www.ccreadbible.org/Members/Bona/ccreadbible/maindata/'+
              year+'/'+month+'/'+year+'-'+month+'-'+date+'.html';
-     
-      services.fetchPage(url, function(result){
-        var file = path.join(__dirname,'../archive/bible.html');
-        fs.writeFile(file, result, function(err){
-          if(err) console.log(err);
+      
+      var file = path.join(__dirname,'../archive/bible-'+year+'-'+month+'-'+date+'.html');
+      if(fs.existsSync(file)){
+        console.log('reading file');
+        fs.readFile(file, function(err, data){
+          if(err) 
+            console.log(err);
+
+          res.status(200).json({content: data.toString()});
+
+        });
+      }else{
+        console.log('writing file');
+        services.fetchPage(url, function(result){
+          fs.writeFile(file, result, function(err){
+            if(err) console.log(err);
+          });
+          
+          res.status(200).json({content: result});
         });
         
-        res.status(200).json({content: result});
-      });
+      }
+
     }
   }
 };

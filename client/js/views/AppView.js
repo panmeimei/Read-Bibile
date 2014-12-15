@@ -1,13 +1,16 @@
 var AppView = Backbone.View.extend({
-  //model:app
-  className:'app-view',
+
+  template: _.template($('#index-template').html()),
   
-  
+  initialize: function(){
+    this.render();
+  },
+
   render: function(){
-    console.log('prepare reading view');
-    var readingView = new ReadingView({model: this.model.get('reading')});
-    this.$el.html(readingView.render());
-    $('body').html(this.$el);
+    console.log('prepare app view');
+    new NaviView();
+    $('.template-view').html(this.$el.html(this.template));
+    
   }
 
 });
